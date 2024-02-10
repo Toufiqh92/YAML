@@ -4,7 +4,8 @@ import discord
 from discord.ext import commands
 from openai import OpenAI
 from dotenv import dotenv_values
-
+with open("RedSummit1/YAML/Website/BotPersona.txt") as perso:
+    botPersona= perso.read()
 #Code portion for Chatgpt
 
 config = dotenv_values($HOME/".env") # Locate .env file
@@ -33,6 +34,10 @@ async def chat(ctx,*arg):
             {
               "role": "user",
               "content": " ".join(arg)
+            }
+             {
+              "role": "user",
+              "content": botPersona
             }
         ],
     n=2,
